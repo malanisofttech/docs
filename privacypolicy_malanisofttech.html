@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — MalaniSoftTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #0d0f14;
+      --surface:   #13161d;
+      --card:      #181c26;
+      --border:    #272c3a;
+      --accent:    #4f8ef7;
+      --accent2:   #a78bfa;
+      --gold:      #f0c060;
+      --text:      #e4e8f0;
+      --muted:     #7a839a;
+      --danger:    #f87171;
+      --success:   #34d399;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      font-size: 16px;
+      min-height: 100vh;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: relative;
+      padding: 80px 24px 60px;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(79,142,247,.18) 0%, rgba(167,139,250,.10) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border: 1px solid rgba(79,142,247,.35);
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(79,142,247,.07);
+      margin-bottom: 22px;
+      animation: fadeDown .6s ease both;
+    }
+
+    .badge::before { content: '●'; font-size: 7px; }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      animation: fadeDown .7s .1s ease both;
+    }
+
+    header h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-meta {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      animation: fadeDown .8s .2s ease both;
+    }
+
+    .meta-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .meta-chip svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── LAYOUT ── */
+    .layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      position: sticky;
+      top: 32px;
+      align-self: start;
+      padding-right: 28px;
+      height: fit-content;
+      animation: fadeRight .7s .1s ease both;
+    }
+
+    .toc-title {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .toc a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all .2s;
+      border-left: 2px solid transparent;
+      margin-bottom: 2px;
+    }
+
+    .toc a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+      border-left-color: var(--accent);
+    }
+
+    .toc-num {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--accent);
+      min-width: 16px;
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      border-left: 1px solid var(--border);
+      padding-left: 48px;
+    }
+
+    /* ── REGULATION BANNERS ── */
+    .reg-strip {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+      animation: fadeUp .6s .2s ease both;
+    }
+
+    .reg-tag {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      border: 1px solid;
+    }
+
+    .reg-tag.gdpr   { color: #60a5fa; border-color: rgba(96,165,250,.3); background: rgba(96,165,250,.08); }
+    .reg-tag.ccpa   { color: #f59e0b; border-color: rgba(245,158,11,.3); background: rgba(245,158,11,.08); }
+    .reg-tag.dpdp   { color: #34d399; border-color: rgba(52,211,153,.3); background: rgba(52,211,153,.08); }
+    .reg-tag.coppa  { color: #f472b6; border-color: rgba(244,114,182,.3); background: rgba(244,114,182,.08); }
+    .reg-tag.ads    { color: #a78bfa; border-color: rgba(167,139,250,.3); background: rgba(167,139,250,.08); }
+
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 52px;
+      animation: fadeUp .6s ease both;
+    }
+
+    .section:nth-child(2) { animation-delay: .05s; }
+    .section:nth-child(3) { animation-delay: .10s; }
+    .section:nth-child(4) { animation-delay: .15s; }
+    .section:nth-child(5) { animation-delay: .20s; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .sec-num {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(79,142,247,.2), rgba(167,139,250,.2));
+      border: 1px solid rgba(79,142,247,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -.01em;
+    }
+
+    .section h3 {
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin: 22px 0 8px;
+      letter-spacing: .03em;
+    }
+
+    .section p {
+      color: #b8c0d4;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    /* ── LIST ── */
+    .pp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .pp-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: #b8c0d4;
+    }
+
+    .pp-list li::before {
+      content: '›';
+      color: var(--accent);
+      font-size: 16px;
+      line-height: 1.6;
+      flex-shrink: 0;
+    }
+
+    /* ── CARDS ── */
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+
+    .info-card .card-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .info-card p {
+      margin: 0;
+      font-size: 14.5px;
+    }
+
+    /* ── RIGHTS GRID ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .right-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      transition: border-color .2s;
+    }
+
+    .right-card:hover { border-color: rgba(79,142,247,.4); }
+
+    .right-icon {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .right-card strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .right-card p {
+      font-size: 12.5px !important;
+      color: var(--muted) !important;
+      margin: 0 !important;
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      border-left: 3px solid;
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+
+    .highlight-box.warn {
+      background: rgba(240,192,96,.06);
+      border-color: var(--gold);
+      color: #d4aa50;
+    }
+
+    .highlight-box.info {
+      background: rgba(79,142,247,.06);
+      border-color: var(--accent);
+      color: #7eb3f9;
+    }
+
+    .highlight-box.success {
+      background: rgba(52,211,153,.06);
+      border-color: var(--success);
+      color: #34d399;
+    }
+
+    /* ── DIVIDER ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 36px 0;
+    }
+
+    /* ── TABLE ── */
+    .pp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .pp-table th {
+      background: rgba(79,142,247,.08);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pp-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: #b8c0d4;
+      vertical-align: top;
+    }
+
+    .pp-table tr:last-child td { border-bottom: none; }
+    .pp-table tr:hover td { background: rgba(255,255,255,.02); }
+
+    /* ── CONTACT SECTION ── */
+    .contact-block {
+      background: linear-gradient(135deg, rgba(79,142,247,.09), rgba(167,139,250,.09));
+      border: 1px solid rgba(79,142,247,.22);
+      border-radius: 14px;
+      padding: 28px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .contact-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .contact-block p { font-size: 14px; color: var(--muted); margin: 0; }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+      transition: opacity .2s, transform .15s;
+    }
+
+    .contact-link:hover { opacity: .88; transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    footer strong { color: var(--text); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown  { from { opacity:0; transform:translateY(-14px); } to { opacity:1; transform:none; } }
+    @keyframes fadeUp    { from { opacity:0; transform:translateY(14px);  } to { opacity:1; transform:none; } }
+    @keyframes fadeRight { from { opacity:0; transform:translateX(-14px); } to { opacity:1; transform:none; } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+        padding: 32px 16px 60px;
+      }
+      .toc { display: none; }
+      main { border-left: none; padding-left: 0; }
+      .rights-grid { grid-template-columns: 1fr 1fr; }
+      .contact-block { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .rights-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ HEADER ══ -->
+<header>
+  <div class="badge">Legal Document</div>
+  <h1>Privacy <span>Policy</span></h1>
+  <div class="header-meta">
+    <span class="meta-chip">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-3.5a.75.75 0 0 1 .75.75v3.94l2.28 1.31a.75.75 0 1 1-.75 1.3l-2.5-1.44A.75.75 0 0 1 7.25 10V5.25A.75.75 0 0 1 8 4.5Z" fill="currentColor"/></svg>
+      Effective Date: January 1, 2026
+    </span>
+    <span class="meta-chip">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z" fill="currentColor"/><path d="M7.25 5.5a.75.75 0 0 1 1.5 0v5a.75.75 0 0 1-1.5 0v-5Z" fill="currentColor"/></svg>
+      Last Updated: April 2026
+    </span>
+    <span class="meta-chip">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" fill="currentColor"/><path d="M1.38 8a6.605 6.605 0 0 1 1.518-2.758A6.59 6.59 0 0 1 8 3c2.053 0 3.8.933 5.102 2.242A6.605 6.605 0 0 1 14.62 8a6.605 6.605 0 0 1-1.518 2.758A6.59 6.59 0 0 1 8 13a6.59 6.59 0 0 1-5.102-2.242A6.605 6.605 0 0 1 1.38 8ZM8 1.5A7.5 7.5 0 0 0 .5 8c0 4.142 3.358 6.5 7.5 6.5S15.5 12.142 15.5 8A7.5 7.5 0 0 0 8 1.5Z" fill="currentColor"/></svg>
+      MalaniSoftTech
+    </span>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════ BODY ══ -->
+<div class="layout">
+
+  <!-- TOC -->
+  <aside class="toc">
+    <p class="toc-title">Contents</p>
+    <a href="#s1"><span class="toc-num">01</span>Introduction</a>
+    <a href="#s2"><span class="toc-num">02</span>Data We Collect</a>
+    <a href="#s3"><span class="toc-num">03</span>How We Use Data</a>
+    <a href="#s4"><span class="toc-num">04</span>Advertising</a>
+    <a href="#s5"><span class="toc-num">05</span>Data Sharing</a>
+    <a href="#s6"><span class="toc-num">06</span>Cookies</a>
+    <a href="#s7"><span class="toc-num">07</span>Data Retention</a>
+    <a href="#s8"><span class="toc-num">08</span>Data Security</a>
+    <a href="#s9"><span class="toc-num">09</span>Your Rights</a>
+    <a href="#s10"><span class="toc-num">10</span>Children's Privacy</a>
+    <a href="#s11"><span class="toc-num">11</span>Regional Rights</a>
+    <a href="#s12"><span class="toc-num">12</span>Policy Changes</a>
+    <a href="#s13"><span class="toc-num">13</span>Contact Us</a>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- Regulations strip -->
+    <div class="reg-strip">
+      <span class="reg-tag gdpr">GDPR 2016/679</span>
+      <span class="reg-tag ccpa">CCPA / CPRA</span>
+      <span class="reg-tag dpdp">India DPDP Act 2023</span>
+      <span class="reg-tag coppa">COPPA</span>
+      <span class="reg-tag ads">Ads Policy 2026</span>
+    </div>
+
+    <!-- ── SECTION 1 ── -->
+    <section class="section" id="s1">
+      <div class="section-header">
+        <div class="sec-num">01</div>
+        <h2>Introduction &amp; Overview</h2>
+      </div>
+      <p>
+        <strong>Malani Jainil</strong>, operating under the brand <strong>MalaniSoftTech</strong> ("we", "us", or "our"), is committed to protecting your privacy and handling your personal information with transparency, care, and full compliance with applicable data protection laws as of 2026.
+      </p>
+      <p>
+        This Privacy Policy describes how we collect, use, store, share, and protect your personal data when you use our applications, websites, and related services (collectively, the "Services"). By accessing or using our Services, you agree to the terms of this Privacy Policy.
+      </p>
+      <div class="highlight-box info">
+        This policy complies with the <strong>EU General Data Protection Regulation (GDPR)</strong>, the <strong>California Consumer Privacy Act (CCPA/CPRA)</strong>, India's <strong>Digital Personal Data Protection (DPDP) Act 2023</strong>, <strong>COPPA</strong>, and global advertising transparency requirements effective in 2026.
+      </div>
+
+      <div class="info-card">
+        <div class="card-label">Data Controller / Owner</div>
+        <p><strong>Malani Jainil</strong> — MalaniSoftTech<br/>
+        Contact: <a href="mailto:malanisofttech@gmail.com" style="color:var(--accent);">malanisofttech@gmail.com</a></p>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 2 ── -->
+    <section class="section" id="s2">
+      <div class="section-header">
+        <div class="sec-num">02</div>
+        <h2>Information We Collect</h2>
+      </div>
+
+      <h3>2.1 Information You Provide Directly</h3>
+      <ul class="pp-list">
+        <li>Name and email address when registering or contacting us</li>
+        <li>Username and password for account creation</li>
+        <li>Profile information (avatar, preferences)</li>
+        <li>Payment information (processed securely through third-party processors; we do not store raw payment data)</li>
+        <li>Feedback, support requests, and communications you send us</li>
+      </ul>
+
+      <h3>2.2 Information Collected Automatically</h3>
+      <ul class="pp-list">
+        <li>Device identifiers: Advertising ID (IDFA on iOS, GAID on Android), Device ID</li>
+        <li>IP address and approximate geolocation (country / city level)</li>
+        <li>Browser type, OS version, device model, screen resolution</li>
+        <li>App usage data: session duration, pages/screens viewed, features used, crash logs</li>
+        <li>Interaction data: clicks, taps, in-app events, purchase history</li>
+        <li>Referral source and attribution data</li>
+      </ul>
+
+      <h3>2.3 Information from Third Parties</h3>
+      <ul class="pp-list">
+        <li>Social login data (e.g., Google, Facebook) if you choose to log in via those platforms</li>
+        <li>Analytics data from third-party analytics providers</li>
+        <li>Advertising partner signals (opt-in consent required for personalized ads)</li>
+      </ul>
+
+      <div class="highlight-box warn">
+        We do <strong>not</strong> collect sensitive personal information (e.g., biometric data, health data, financial account numbers, racial/ethnic origin, or political opinions) unless explicitly required and consented to.
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 3 ── -->
+    <section class="section" id="s3">
+      <div class="section-header">
+        <div class="sec-num">03</div>
+        <h2>How We Use Your Information</h2>
+      </div>
+      <p>We use the information we collect for the following purposes, based on a lawful legal basis under applicable regulations:</p>
+
+      <table class="pp-table">
+        <thead>
+          <tr>
+            <th>Purpose</th>
+            <th>Legal Basis (GDPR)</th>
+            <th>DPDP Basis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Providing and improving our Services</td>
+            <td>Contract performance</td>
+            <td>Legitimate use</td>
+          </tr>
+          <tr>
+            <td>Account management &amp; authentication</td>
+            <td>Contract performance</td>
+            <td>Consent / Contract</td>
+          </tr>
+          <tr>
+            <td>Sending transactional emails &amp; notifications</td>
+            <td>Contract performance / Consent</td>
+            <td>Consent</td>
+          </tr>
+          <tr>
+            <td>Personalizing your experience</td>
+            <td>Legitimate interest / Consent</td>
+            <td>Consent</td>
+          </tr>
+          <tr>
+            <td>Analytics &amp; performance measurement</td>
+            <td>Legitimate interest</td>
+            <td>Legitimate use</td>
+          </tr>
+          <tr>
+            <td>Showing advertisements</td>
+            <td>Consent</td>
+            <td>Consent</td>
+          </tr>
+          <tr>
+            <td>Fraud prevention &amp; security</td>
+            <td>Legal obligation / Legitimate interest</td>
+            <td>Legitimate use</td>
+          </tr>
+          <tr>
+            <td>Compliance with legal obligations</td>
+            <td>Legal obligation</td>
+            <td>Legal obligation</td>
+          </tr>
+          <tr>
+            <td>Marketing communications (opt-in only)</td>
+            <td>Consent</td>
+            <td>Consent</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>You may withdraw your consent for any consent-based processing at any time by contacting us or adjusting your in-app settings.</p>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 4 ── -->
+    <section class="section" id="s4">
+      <div class="section-header">
+        <div class="sec-num">04</div>
+        <h2>Advertising &amp; Ad Partner Rules (2026)</h2>
+      </div>
+      <div class="highlight-box info">
+        Our advertising practices comply with the <strong>IAB TCF v2.2</strong>, <strong>Google Play Policy 2026</strong>, <strong>Apple App Store Advertising Guidelines</strong>, and applicable national ad-tech regulations.
+      </div>
+
+      <h3>4.1 Types of Ads We Show</h3>
+      <ul class="pp-list">
+        <li><strong>Contextual ads</strong> — shown based on content, not personal profiling (no consent required)</li>
+        <li><strong>Personalized / interest-based ads</strong> — shown only with your explicit opt-in consent</li>
+        <li><strong>Rewarded ads</strong> — optional video ads in exchange for in-app rewards</li>
+        <li><strong>Interstitial &amp; banner ads</strong> — displayed at appropriate intervals per platform guidelines</li>
+      </ul>
+
+      <h3>4.2 Advertising Partners</h3>
+      <p>We work with third-party advertising networks. Each partner has its own privacy policy. Where applicable, you can opt out of personalized advertising through their opt-out mechanisms:</p>
+      <ul class="pp-list">
+        <li>Google AdMob — <a href="https://policies.google.com/privacy" style="color:var(--accent);" target="_blank">policies.google.com/privacy</a></li>
+        <li>Meta Audience Network — <a href="https://www.facebook.com/about/privacy/" style="color:var(--accent);" target="_blank">facebook.com/about/privacy</a></li>
+        <li>Unity Ads — <a href="https://unity.com/legal/privacy-policy" style="color:var(--accent);" target="_blank">unity.com/legal/privacy-policy</a></li>
+        <li>AppLovin — <a href="https://www.applovin.com/privacy/" style="color:var(--accent);" target="_blank">applovin.com/privacy</a></li>
+        <li>IronSource / Unity LevelPlay — subject to Unity's privacy policy</li>
+      </ul>
+
+      <h3>4.3 Your Advertising Choices</h3>
+      <ul class="pp-list">
+        <li>You can opt out of personalized ads via <strong>iOS Settings → Privacy → Tracking</strong> or <strong>Android Settings → Google → Ads</strong></li>
+        <li>You can reset your Advertising ID at any time in your device settings</li>
+        <li>Non-personalized (contextual) ads may still appear after opting out</li>
+        <li>Upgrade to a paid/premium version (if available) to remove ads entirely</li>
+      </ul>
+
+      <h3>4.4 Ad Data Usage Rules</h3>
+      <ul class="pp-list">
+        <li>We never use health, financial, or sensitive-category data to target ads</li>
+        <li>We never show behaviorally targeted ads to users identified as under 13</li>
+        <li>We comply with the EU Digital Services Act (DSA) ad transparency requirements</li>
+        <li>All ad impression data is used only for measurement and fraud prevention</li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 5 ── -->
+    <section class="section" id="s5">
+      <div class="section-header">
+        <div class="sec-num">05</div>
+        <h2>Data Sharing &amp; Third Parties</h2>
+      </div>
+      <p>We do <strong>not</strong> sell your personal information. We may share information only in the following situations:</p>
+      <ul class="pp-list">
+        <li><strong>Service providers</strong>: vendors who help us deliver the Services (analytics, hosting, payment processing, customer support) under strict data processing agreements (DPAs)</li>
+        <li><strong>Advertising networks</strong>: with your consent, for personalized advertising as described in Section 4</li>
+        <li><strong>Legal requirements</strong>: when required by law, court order, or government authority</li>
+        <li><strong>Business transfers</strong>: in connection with a merger, acquisition, or asset sale — you will be notified in advance</li>
+        <li><strong>Safety</strong>: to prevent harm, fraud, or illegal activity</li>
+        <li><strong>With your consent</strong>: any other sharing will be disclosed at the time of collection with your explicit consent</li>
+      </ul>
+
+      <div class="highlight-box success">
+        We enter into Data Processing Agreements (DPAs) with all vendors who process your personal data on our behalf, ensuring they maintain the same privacy standards we do.
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 6 ── -->
+    <section class="section" id="s6">
+      <div class="section-header">
+        <div class="sec-num">06</div>
+        <h2>Cookies &amp; Tracking Technologies</h2>
+      </div>
+      <p>Our website and apps may use the following tracking technologies:</p>
+      <table class="pp-table">
+        <thead>
+          <tr>
+            <th>Technology</th>
+            <th>Purpose</th>
+            <th>Can You Opt Out?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Essential Cookies</td><td>Login sessions, security</td><td>No (required)</td></tr>
+          <tr><td>Analytics Cookies</td><td>Usage measurement, improvement</td><td>Yes</td></tr>
+          <tr><td>Preference Cookies</td><td>Saving your settings</td><td>Yes</td></tr>
+          <tr><td>Advertising Cookies / SDKs</td><td>Personalized ads (with consent)</td><td>Yes (opt-out)</td></tr>
+          <tr><td>Firebase / Crashlytics</td><td>Crash reporting, analytics</td><td>Yes</td></tr>
+          <tr><td>Ad Attribution SDKs</td><td>Measuring install/campaign source</td><td>Yes (Limit Ad Tracking)</td></tr>
+        </tbody>
+      </table>
+      <p>You can control cookies via your browser settings. For mobile SDKs, use your device's privacy controls. Disabling certain cookies may affect functionality.</p>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 7 ── -->
+    <section class="section" id="s7">
+      <div class="section-header">
+        <div class="sec-num">07</div>
+        <h2>Data Retention</h2>
+      </div>
+      <p>We retain personal data only as long as necessary for the purposes stated in this policy or as required by law.</p>
+      <ul class="pp-list">
+        <li><strong>Active accounts</strong>: data retained for the duration of your use of the Services</li>
+        <li><strong>Deleted accounts</strong>: data anonymized or deleted within <strong>90 days</strong> of account deletion request, except where legal obligations require longer retention</li>
+        <li><strong>Advertising data</strong>: aggregated, anonymized; event-level logs deleted after <strong>13 months</strong></li>
+        <li><strong>Legal / compliance records</strong>: retained for up to <strong>7 years</strong> as required by applicable law</li>
+        <li><strong>Backup systems</strong>: residual copies may persist for up to 30 days in encrypted backups before being purged</li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 8 ── -->
+    <section class="section" id="s8">
+      <div class="section-header">
+        <div class="sec-num">08</div>
+        <h2>Data Security</h2>
+      </div>
+      <p>We implement industry-standard security measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction:</p>
+      <ul class="pp-list">
+        <li>TLS/SSL encryption for all data in transit</li>
+        <li>AES-256 encryption for data at rest</li>
+        <li>Access controls with role-based permissions and least-privilege principles</li>
+        <li>Regular security audits and vulnerability assessments</li>
+        <li>Incident response procedures; in the event of a breach, affected users will be notified within <strong>72 hours</strong> as required by GDPR and applicable law</li>
+        <li>Two-factor authentication for administrative access</li>
+      </ul>
+      <div class="highlight-box warn">
+        No system is 100% secure. We encourage you to use strong, unique passwords and to notify us immediately at <a href="mailto:malanisofttech@gmail.com" style="color:var(--gold);">malanisofttech@gmail.com</a> if you suspect any unauthorized access.
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 9 ── -->
+    <section class="section" id="s9">
+      <div class="section-header">
+        <div class="sec-num">09</div>
+        <h2>Your Rights</h2>
+      </div>
+      <p>Depending on your location, you have the following rights over your personal data. To exercise any right, contact us at <a href="mailto:malanisofttech@gmail.com" style="color:var(--accent);">malanisofttech@gmail.com</a>. We will respond within <strong>30 days</strong>.</p>
+
+      <div class="rights-grid">
+        <div class="right-card">
+          <div class="right-icon">👁</div>
+          <strong>Right to Access</strong>
+          <p>Request a copy of your personal data we hold.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">✏️</div>
+          <strong>Right to Rectification</strong>
+          <p>Correct inaccurate or incomplete data.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">🗑️</div>
+          <strong>Right to Erasure</strong>
+          <p>Request deletion ("right to be forgotten").</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">⏸️</div>
+          <strong>Right to Restriction</strong>
+          <p>Limit how we process your data.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">📦</div>
+          <strong>Data Portability</strong>
+          <p>Receive your data in a machine-readable format.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">🚫</div>
+          <strong>Right to Object</strong>
+          <p>Object to processing based on legitimate interest or for direct marketing.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">🤖</div>
+          <strong>Automated Decisions</strong>
+          <p>Request human review of automated decisions that significantly affect you.</p>
+        </div>
+        <div class="right-card">
+          <div class="right-icon">↩️</div>
+          <strong>Withdraw Consent</strong>
+          <p>Withdraw consent at any time for consent-based processing.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:16px;">You also have the right to lodge a complaint with your local data protection authority (e.g., the DPA in your EU member state, the ICO in the UK, or India's Data Protection Board).</p>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 10 ── -->
+    <section class="section" id="s10">
+      <div class="section-header">
+        <div class="sec-num">10</div>
+        <h2>Children's Privacy</h2>
+      </div>
+      <div class="highlight-box warn">
+        Our Services are <strong>not directed to children under the age of 13</strong> (or 16 in the EU/UK, or as defined by applicable local law).
+      </div>
+      <p>We do not knowingly collect personal information from children. If we learn that we have inadvertently collected data from a child under the applicable age threshold, we will delete such information promptly.</p>
+      <ul class="pp-list">
+        <li>No behavioral advertising is shown to users identified or reasonably believed to be under 13</li>
+        <li>If you are a parent or guardian and believe your child has provided us personal data, contact us at <a href="mailto:malanisofttech@gmail.com" style="color:var(--accent);">malanisofttech@gmail.com</a></li>
+        <li>For apps rated for children on app stores, we comply with applicable Kids Category policies (Google Families, Apple Kids)</li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 11 ── -->
+    <section class="section" id="s11">
+      <div class="section-header">
+        <div class="sec-num">11</div>
+        <h2>Regional-Specific Rights</h2>
+      </div>
+
+      <h3>🇪🇺 European Union / UK — GDPR</h3>
+      <ul class="pp-list">
+        <li>Legal bases for processing are documented and available upon request</li>
+        <li>International data transfers outside the EEA use Standard Contractual Clauses (SCCs) or equivalent safeguards</li>
+        <li>You may contact your national Data Protection Authority to file a complaint</li>
+      </ul>
+
+      <h3>🇺🇸 California, USA — CCPA / CPRA</h3>
+      <ul class="pp-list">
+        <li>We do <strong>not sell</strong> your personal information as defined by CCPA</li>
+        <li>California residents may request disclosure of categories and specific pieces of personal information collected in the past 12 months</li>
+        <li>You have the right to opt out of sharing for cross-context behavioral advertising via the "Do Not Sell or Share My Personal Information" option</li>
+        <li>We will not discriminate against you for exercising your CCPA rights</li>
+      </ul>
+
+      <h3>🇮🇳 India — DPDP Act 2023</h3>
+      <ul class="pp-list">
+        <li>We act as a <strong>Data Fiduciary</strong> under the DPDP Act 2023</li>
+        <li>Personal data is collected only with free, specific, informed, and unambiguous <strong>consent</strong></li>
+        <li>You have the right to access, correct, and erase your data; to nominate a representative; and to grieve and seek redressal</li>
+        <li>Significant data fiduciary obligations (if applicable) will be met including DPIA, data audits, and appointment of a Data Protection Officer</li>
+        <li>Cross-border data transfers comply with the Government of India's notified list of permitted countries</li>
+      </ul>
+
+      <h3>🌏 Other Regions</h3>
+      <p>Users in other jurisdictions (e.g., Canada — PIPEDA; Brazil — LGPD; Australia — Privacy Act 1988) are afforded equivalent protections under this policy to the extent legally required.</p>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 12 ── -->
+    <section class="section" id="s12">
+      <div class="section-header">
+        <div class="sec-num">12</div>
+        <h2>Changes to This Policy</h2>
+      </div>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technologies, legal requirements, or for other operational reasons.</p>
+      <ul class="pp-list">
+        <li>We will notify you of material changes via in-app notification, email, or a prominent notice on our website at least <strong>30 days before</strong> the change takes effect</li>
+        <li>The "Last Updated" date at the top of this page will always reflect the most recent revision</li>
+        <li>Your continued use of the Services after the effective date constitutes acceptance of the updated policy</li>
+        <li>For significant changes affecting your rights, we may request renewed consent</li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- ── SECTION 13 ── -->
+    <section class="section" id="s13">
+      <div class="section-header">
+        <div class="sec-num">13</div>
+        <h2>Contact Us</h2>
+      </div>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please reach out to us:</p>
+
+      <div class="contact-block">
+        <div>
+          <h3>Get in Touch</h3>
+          <p>Data Privacy &amp; Support — MalaniSoftTech</p>
+          <p style="margin-top:8px; color:#7eb3f9;">malanisofttech@gmail.com</p>
+        </div>
+        <a class="contact-link" href="mailto:malanisofttech@gmail.com">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.75 2h12.5C15.216 2 16 2.784 16 3.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2ZM1.5 5.412v6.838c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V5.412L8.54 9.956a.75.75 0 0 1-.08.06l-.025.014L8.4 10l-.04.016a.75.75 0 0 1-.72 0L8 10l-.036-.014-.024-.014a.75.75 0 0 1-.08-.06L1.5 5.412Zm13-1.686L8 8.948 1.5 3.726v-.226a.25.25 0 0 1 .25-.25h12.5a.25.25 0 0 1 .25.25v.226Z" fill="currentColor"/>
+          </svg>
+          Email Us
+        </a>
+      </div>
+
+      <div class="info-card" style="margin-top:16px;">
+        <div class="card-label">Response Time</div>
+        <p>We aim to respond to all privacy-related requests within <strong>30 days</strong>. For GDPR Subject Access Requests, we respond within <strong>30 days</strong> (extendable to 90 days for complex requests, with notice). For DPDP Act requests, we respond within timeframes prescribed by the applicable rules.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ══════════════════════════════════════════ FOOTER ══ -->
+<footer>
+  <p>© 2026 <strong>Malani Jainil</strong> — MalaniSoftTech. All rights reserved.</p>
+  <p style="margin-top:6px;">This Privacy Policy is effective as of <strong>January 1, 2026</strong>.</p>
+</footer>
+
+</body>
+</html>
