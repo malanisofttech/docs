@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms &amp; Conditions — MalaniSoftTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:         #f5f2ec;
+      --surface:    #fffdf8;
+      --card:       #ffffff;
+      --border:     #e2dcd0;
+      --accent:     #c0392b;
+      --accent2:    #e67e22;
+      --ink:        #1a1612;
+      --muted:      #7a6f63;
+      --light-muted:#b5a99a;
+      --tag-bg:     #fdf0ed;
+      --shadow:     0 2px 20px rgba(26,22,18,.07);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 15.5px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── DECORATIVE TOP BAR ── */
+    .top-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 60%, #f1c40f 100%);
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* decorative circles */
+    header::before, header::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    header::before {
+      width: 500px; height: 500px;
+      top: -260px; right: -140px;
+      background: radial-gradient(circle, rgba(192,57,43,.06) 0%, transparent 70%);
+    }
+    header::after {
+      width: 340px; height: 340px;
+      bottom: -200px; left: -80px;
+      background: radial-gradient(circle, rgba(230,126,34,.06) 0%, transparent 70%);
+    }
+
+    .doc-type {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1.5px solid var(--accent);
+      padding-bottom: 2px;
+      margin-bottom: 22px;
+      animation: riseIn .5s ease both;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.05;
+      color: var(--ink);
+      animation: riseIn .6s .08s ease both;
+    }
+
+    header h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .header-sub {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--muted);
+      animation: riseIn .6s .16s ease both;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      animation: riseIn .6s .24s ease both;
+    }
+
+    .meta-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 12.5px;
+      color: var(--muted);
+      box-shadow: var(--shadow);
+    }
+
+    .meta-pill .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── LAYOUT ── */
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: sticky;
+      top: 28px;
+      align-self: start;
+      animation: slideLeft .5s .1s ease both;
+    }
+
+    .sidebar-label {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--light-muted);
+      margin-bottom: 12px;
+    }
+
+    .toc-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-size: 12.5px;
+      color: var(--muted);
+      transition: all .18s;
+      margin-bottom: 1px;
+      line-height: 1.4;
+    }
+
+    .toc-link:hover {
+      color: var(--accent);
+      background: var(--tag-bg);
+    }
+
+    .toc-n {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--accent);
+      min-width: 18px;
+      padding-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 18px 0;
+    }
+
+    .sidebar-note {
+      background: var(--tag-bg);
+      border: 1px solid #f0c0b8;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .sidebar-note strong { color: var(--accent); }
+
+    /* ── MAIN ── */
+    main {
+      min-width: 0;
+    }
+
+    /* ── INTRO CARD ── */
+    .intro-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow);
+      font-size: 14.5px;
+      color: var(--muted);
+      animation: riseIn .5s .1s ease both;
+    }
+
+    .intro-card strong { color: var(--ink); }
+
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 48px;
+      animation: riseIn .5s ease both;
+    }
+
+    .sec-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sec-badge {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      opacity: .25;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      line-height: 1.2;
+    }
+
+    .section h3 {
+      font-size: .88rem;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    .section p {
+      color: #3d3530;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    /* ── LIST ── */
+    .tc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+
+    .tc-list li {
+      display: flex;
+      gap: 12px;
+      font-size: 14.5px;
+      color: #3d3530;
+      align-items: flex-start;
+    }
+
+    .tc-list li::before {
+      content: '—';
+      color: var(--accent);
+      flex-shrink: 0;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    /* ── CALLOUT ── */
+    .callout {
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+      font-size: 14.5px;
+      line-height: 1.65;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+    .callout.warn   { background: #fff8f0; border: 1px solid #f5cba7; color: #7d5a35; }
+    .callout.danger { background: #fdf3f2; border: 1px solid #f5b7b1; color: #922b21; }
+    .callout.info   { background: #f2f8fd; border: 1px solid #a9cce3; color: #1a5276; }
+    .callout.neutral{ background: var(--card); border: 1px solid var(--border); color: var(--muted); }
+
+    /* ── TABLE ── */
+    .tc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-bottom: 16px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .tc-table thead { background: #fdf0ed; }
+
+    .tc-table th {
+      padding: 11px 16px;
+      text-align: left;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tc-table td {
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--border);
+      color: #3d3530;
+      vertical-align: top;
+    }
+
+    .tc-table tr:last-child td { border-bottom: none; }
+    .tc-table tr:hover td { background: #fafaf8; }
+
+    /* ── TAG CHIPS ── */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .chip {
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      border: 1px solid;
+    }
+
+    .chip.r { color: #c0392b; border-color: #f1948a; background: #fdf3f2; }
+    .chip.o { color: #a04000; border-color: #f0a07a; background: #fef5ec; }
+    .chip.g { color: #1e8449; border-color: #82e0aa; background: #eafaf1; }
+    .chip.b { color: #1a5276; border-color: #85c1e9; background: #eaf4fb; }
+
+    /* ── DIVIDER ── */
+    .sec-divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+      opacity: .2;
+      margin: 40px 0;
+    }
+
+    /* ── CONTACT BOX ── */
+    .contact-box {
+      background: var(--ink);
+      border-radius: 14px;
+      padding: 36px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .contact-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .contact-box p { font-size: 13.5px; color: #a09080; margin: 0; }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+
+    .contact-btn:hover { background: #a93226; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes riseIn    { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+    @keyframes slideLeft { from { opacity:0; transform:translateX(-12px); } to { opacity:1; transform:none; } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      .wrap { grid-template-columns: 1fr; gap: 0; padding-top: 32px; }
+      .sidebar { display: none; }
+      .contact-box { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<!-- ══════════════════ HEADER ══ -->
+<header>
+  <div class="doc-type">Legal Agreement</div>
+  <h1>Terms &amp; <em>Conditions</em></h1>
+  <p class="header-sub">Please read these terms carefully before using our Services.</p>
+  <div class="meta-row">
+    <div class="meta-pill"><span class="dot"></span> Effective: January 1, 2026</div>
+    <div class="meta-pill"><span class="dot"></span> Last Updated: April 2026</div>
+    <div class="meta-pill"><span class="dot"></span> MalaniSoftTech</div>
+  </div>
+</header>
+
+<!-- ══════════════════ LAYOUT ══ -->
+<div class="wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-label">Table of Contents</div>
+    <a class="toc-link" href="#s1"><span class="toc-n">01</span>Acceptance of Terms</a>
+    <a class="toc-link" href="#s2"><span class="toc-n">02</span>Our Services</a>
+    <a class="toc-link" href="#s3"><span class="toc-n">03</span>User Accounts</a>
+    <a class="toc-link" href="#s4"><span class="toc-n">04</span>Acceptable Use</a>
+    <a class="toc-link" href="#s5"><span class="toc-n">05</span>Intellectual Property</a>
+    <a class="toc-link" href="#s6"><span class="toc-n">06</span>In-App Purchases</a>
+    <a class="toc-link" href="#s7"><span class="toc-n">07</span>Advertisements</a>
+    <a class="toc-link" href="#s8"><span class="toc-n">08</span>Privacy</a>
+    <a class="toc-link" href="#s9"><span class="toc-n">09</span>Disclaimers</a>
+    <a class="toc-link" href="#s10"><span class="toc-n">10</span>Limitation of Liability</a>
+    <a class="toc-link" href="#s11"><span class="toc-n">11</span>Termination</a>
+    <a class="toc-link" href="#s12"><span class="toc-n">12</span>Governing Law</a>
+    <a class="toc-link" href="#s13"><span class="toc-n">13</span>Changes to Terms</a>
+    <a class="toc-link" href="#s14"><span class="toc-n">14</span>Contact Us</a>
+
+    <hr class="sidebar-divider"/>
+
+    <div class="sidebar-note">
+      <strong>Questions?</strong><br/>
+      Write to us anytime at<br/>
+      <a href="mailto:malanisofttech@gmail.com" style="color:var(--accent); text-decoration:none;">malanisofttech@gmail.com</a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <div class="intro-card">
+      These Terms and Conditions ("Terms") constitute a legally binding agreement between <strong>you</strong> ("User") and <strong>Malani Jainil</strong>, trading as <strong>MalaniSoftTech</strong> ("Company", "we", "us", "our"), governing your access to and use of all applications, games, websites, and services offered by MalaniSoftTech. By downloading, installing, registering, or using any of our Services, you confirm that you have read, understood, and agree to be bound by these Terms. If you do not agree, please do not use our Services.
+    </div>
+
+    <!-- ── S1 ── -->
+    <section class="section" id="s1">
+      <div class="sec-header">
+        <div class="sec-badge">01</div>
+        <h2>Acceptance of Terms</h2>
+      </div>
+      <p>By accessing or using our Services in any manner, you agree to these Terms and our <a href="privacy_policy.html" style="color:var(--accent);">Privacy Policy</a>, which is incorporated herein by reference. These Terms apply to all users including browsers, registered users, and subscribers.</p>
+      <div class="callout warn">
+        <div class="callout-icon">⚠️</div>
+        <div>If you are accessing the Services on behalf of an organization, you represent that you have the authority to bind that organization to these Terms.</div>
+      </div>
+      <ul class="tc-list">
+        <li>You must be at least <strong>13 years old</strong> (or the minimum age of digital consent in your country) to use our Services.</li>
+        <li>Users between 13–18 must have parental or guardian consent.</li>
+        <li>These Terms supersede any prior agreements between you and MalaniSoftTech regarding the Services.</li>
+      </ul>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S2 ── -->
+    <section class="section" id="s2">
+      <div class="sec-header">
+        <div class="sec-badge">02</div>
+        <h2>Our Services</h2>
+      </div>
+      <p>MalaniSoftTech provides mobile applications, games, web applications, and related digital products (collectively, "Services"). We reserve the right to:</p>
+      <ul class="tc-list">
+        <li>Modify, update, or discontinue any feature or Service at any time with or without prior notice</li>
+        <li>Introduce premium features, subscriptions, or paid tiers at our discretion</li>
+        <li>Perform scheduled or emergency maintenance that may temporarily interrupt access</li>
+        <li>Add, remove, or change third-party integrations and partners</li>
+      </ul>
+      <p>We do not guarantee that the Services will be available at all times, uninterrupted, or error-free.</p>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S3 ── -->
+    <section class="section" id="s3">
+      <div class="sec-header">
+        <div class="sec-badge">03</div>
+        <h2>User Accounts</h2>
+      </div>
+
+      <h3>3.1 Account Registration</h3>
+      <ul class="tc-list">
+        <li>You may be required to create an account to access certain features of the Services</li>
+        <li>You must provide accurate, complete, and current information during registration</li>
+        <li>You are responsible for maintaining the confidentiality of your login credentials</li>
+        <li>You must notify us immediately at <a href="mailto:malanisofttech@gmail.com" style="color:var(--accent);">malanisofttech@gmail.com</a> of any unauthorized use of your account</li>
+      </ul>
+
+      <h3>3.2 Account Responsibility</h3>
+      <ul class="tc-list">
+        <li>You are solely responsible for all activity that occurs under your account</li>
+        <li>You may not share your account credentials or allow others to access your account</li>
+        <li>We are not liable for any loss arising from unauthorized account access due to your failure to keep credentials secure</li>
+        <li>One person may not maintain more than one account (unless expressly permitted)</li>
+      </ul>
+
+      <div class="callout info">
+        <div class="callout-icon">ℹ️</div>
+        <div>We reserve the right to suspend or terminate accounts that violate these Terms, show signs of fraudulent activity, or remain inactive for an extended period.</div>
+      </div>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S4 ── -->
+    <section class="section" id="s4">
+      <div class="sec-header">
+        <div class="sec-badge">04</div>
+        <h2>Acceptable Use Policy</h2>
+      </div>
+      <p>You agree to use the Services only for lawful purposes and in accordance with these Terms. The following conduct is strictly prohibited:</p>
+
+      <div class="chip-row">
+        <span class="chip r">Illegal Activity</span>
+        <span class="chip r">Hacking / Exploits</span>
+        <span class="chip r">Spam</span>
+        <span class="chip r">Impersonation</span>
+        <span class="chip o">Reverse Engineering</span>
+        <span class="chip o">Data Scraping</span>
+        <span class="chip o">Bot / Automation</span>
+        <span class="chip r">Hate Speech</span>
+      </div>
+
+      <ul class="tc-list">
+        <li>Using the Services to violate any local, state, national, or international law or regulation</li>
+        <li>Attempting to gain unauthorized access to any part of the Services, servers, or networks</li>
+        <li>Modifying, reverse-engineering, decompiling, or disassembling any part of the Services</li>
+        <li>Uploading or transmitting malicious code, viruses, or harmful data</li>
+        <li>Collecting or harvesting user data from the Services without authorization</li>
+        <li>Using automated tools, bots, scrapers, or scripts to interact with the Services</li>
+        <li>Impersonating any person or entity, or misrepresenting your affiliation</li>
+        <li>Posting or transmitting harassing, defamatory, obscene, or offensive content</li>
+        <li>Circumventing any technological measures or content protection systems</li>
+        <li>Engaging in cheating, exploiting bugs, or unfair play in any game Services</li>
+      </ul>
+
+      <div class="callout danger">
+        <div class="callout-icon">🚫</div>
+        <div>Violations of this Acceptable Use Policy may result in immediate suspension or permanent termination of your account and may be reported to law enforcement authorities.</div>
+      </div>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S5 ── -->
+    <section class="section" id="s5">
+      <div class="sec-header">
+        <div class="sec-badge">05</div>
+        <h2>Intellectual Property Rights</h2>
+      </div>
+      <p>All content, materials, features, and functionality of the Services — including but not limited to software, code, text, graphics, logos, icons, audio clips, game assets, and data — are the exclusive property of <strong>Malani Jainil / MalaniSoftTech</strong> or its content suppliers and are protected by applicable intellectual property laws.</p>
+
+      <h3>5.1 License Grant</h3>
+      <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable, personal license to access and use the Services for your own personal, non-commercial purposes.</p>
+
+      <h3>5.2 Restrictions</h3>
+      <ul class="tc-list">
+        <li>You may not reproduce, distribute, modify, or create derivative works of any part of the Services</li>
+        <li>You may not publicly display, perform, or transmit any content from the Services without prior written consent</li>
+        <li>You may not remove or alter any copyright, trademark, or proprietary notices</li>
+        <li>You may not use our trademarks, logos, or brand assets without express written permission</li>
+      </ul>
+
+      <h3>5.3 User-Generated Content</h3>
+      <p>If the Services allow you to submit content (feedback, ratings, posts, etc.), you grant MalaniSoftTech a worldwide, royalty-free, irrevocable license to use, reproduce, modify, and display such content in connection with the Services. You represent that you own or have the right to submit such content.</p>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S6 ── -->
+    <section class="section" id="s6">
+      <div class="sec-header">
+        <div class="sec-badge">06</div>
+        <h2>In-App Purchases &amp; Payments</h2>
+      </div>
+
+      <div class="callout warn">
+        <div class="callout-icon">💳</div>
+        <div>All purchases made through the Services are processed via third-party payment providers (Google Play, Apple App Store, or other platforms). MalaniSoftTech does not store your payment card information.</div>
+      </div>
+
+      <table class="tc-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Refundable?</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Virtual currency / coins</td>
+            <td>Generally No</td>
+            <td>Subject to platform refund policy</td>
+          </tr>
+          <tr>
+            <td>Premium subscriptions</td>
+            <td>Pro-rated (platform dependent)</td>
+            <td>Cancel anytime; access until period ends</td>
+          </tr>
+          <tr>
+            <td>Consumable items</td>
+            <td>No</td>
+            <td>Once used, cannot be recovered</td>
+          </tr>
+          <tr>
+            <td>Cosmetic / unlock items</td>
+            <td>No</td>
+            <td>Non-transferable, account-bound</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ul class="tc-list">
+        <li>All prices are displayed in the applicable local currency and are inclusive of applicable taxes where required by law</li>
+        <li>Virtual currency and in-app items have no real-world monetary value and cannot be exchanged or redeemed for cash</li>
+        <li>Subscriptions auto-renew unless cancelled at least 24 hours before the renewal date</li>
+        <li>Refund requests must be submitted through the relevant app store platform</li>
+        <li>We reserve the right to modify pricing at any time; changes will be communicated in advance</li>
+      </ul>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S7 ── -->
+    <section class="section" id="s7">
+      <div class="sec-header">
+        <div class="sec-badge">07</div>
+        <h2>Advertisements</h2>
+      </div>
+      <p>Our free Services are supported by advertising. By using free-tier Services, you acknowledge and agree to the following:</p>
+      <ul class="tc-list">
+        <li>Advertisements may be displayed within the Services, including banner ads, interstitials, rewarded videos, and native ads</li>
+        <li>Personalized advertising requires your explicit opt-in consent, as required by GDPR, DPDP, and applicable ad platform policies (2026)</li>
+        <li>You can opt out of personalized ads through your device privacy settings or in-app settings</li>
+        <li>Non-personalized (contextual) ads may still appear even after opting out</li>
+        <li>We are not responsible for the content, accuracy, or practices of third-party advertisers</li>
+        <li>Upgrading to our premium Services removes all advertisements</li>
+        <li>Ads shown comply with <strong>Google Play Ads Policy 2026</strong>, <strong>Apple App Store guidelines</strong>, and <strong>IAB standards</strong></li>
+      </ul>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S8 ── -->
+    <section class="section" id="s8">
+      <div class="sec-header">
+        <div class="sec-badge">08</div>
+        <h2>Privacy</h2>
+      </div>
+      <p>Your privacy is extremely important to us. Our collection, use, and handling of your personal information is governed by our <a href="privacy_policy.html" style="color:var(--accent);">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
+      <ul class="tc-list">
+        <li>By using the Services, you consent to the data practices described in our Privacy Policy</li>
+        <li>We comply with the GDPR, CCPA/CPRA, India's DPDP Act 2023, and other applicable data protection laws</li>
+        <li>You may exercise your data rights (access, correction, deletion, portability) at any time by contacting <a href="mailto:malanisofttech@gmail.com" style="color:var(--accent);">malanisofttech@gmail.com</a></li>
+      </ul>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S9 ── -->
+    <section class="section" id="s9">
+      <div class="sec-header">
+        <div class="sec-badge">09</div>
+        <h2>Disclaimers &amp; Warranties</h2>
+      </div>
+      <div class="callout warn">
+        <div class="callout-icon">📋</div>
+        <div>THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW.</div>
+      </div>
+      <p>MalaniSoftTech expressly disclaims all warranties, including but not limited to:</p>
+      <ul class="tc-list">
+        <li>Implied warranties of merchantability, fitness for a particular purpose, and non-infringement</li>
+        <li>That the Services will be uninterrupted, timely, secure, or error-free</li>
+        <li>That any defects or errors in the Services will be corrected</li>
+        <li>That the Services or servers are free of viruses or other harmful components</li>
+        <li>The accuracy, reliability, or completeness of any information provided through the Services</li>
+      </ul>
+      <p>Some jurisdictions do not allow the exclusion of certain warranties, so some of the above exclusions may not apply to you.</p>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S10 ── -->
+    <section class="section" id="s10">
+      <div class="sec-header">
+        <div class="sec-badge">10</div>
+        <h2>Limitation of Liability</h2>
+      </div>
+      <div class="callout danger">
+        <div class="callout-icon">⚖️</div>
+        <div>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, MALANISOFTTECH AND MALANI JAINIL SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES.</div>
+      </div>
+      <p>This includes, without limitation, damages for:</p>
+      <ul class="tc-list">
+        <li>Loss of profits, revenue, data, goodwill, or other intangible losses</li>
+        <li>Cost of substitute goods or services</li>
+        <li>Unauthorized access to or alteration of your data</li>
+        <li>Any bugs, viruses, or harmful code transmitted through the Services</li>
+        <li>Interruption or cessation of the Services</li>
+      </ul>
+      <p>Our total aggregate liability to you for any claim arising out of or related to these Terms or the Services shall not exceed the greater of: (a) the amount you paid us in the 12 months preceding the claim, or (b) ₹500 / USD $10, whichever is applicable in your jurisdiction.</p>
+      <p>Some jurisdictions do not allow limitation of liability for certain types of damages, so some limitations above may not apply to you.</p>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S11 ── -->
+    <section class="section" id="s11">
+      <div class="sec-header">
+        <div class="sec-badge">11</div>
+        <h2>Termination</h2>
+      </div>
+      <p>Either party may terminate this agreement at any time:</p>
+
+      <h3>11.1 Termination by You</h3>
+      <ul class="tc-list">
+        <li>You may stop using the Services at any time by uninstalling our applications and deleting your account</li>
+        <li>To request account deletion and data erasure, contact <a href="mailto:malanisofttech@gmail.com" style="color:var(--accent);">malanisofttech@gmail.com</a></li>
+      </ul>
+
+      <h3>11.2 Termination by Us</h3>
+      <ul class="tc-list">
+        <li>We may suspend or permanently terminate your access immediately, without notice, if you breach any provision of these Terms</li>
+        <li>We may terminate accounts for prolonged inactivity (typically 24+ months without login)</li>
+        <li>We may discontinue the Services entirely with reasonable advance notice</li>
+      </ul>
+
+      <h3>11.3 Effect of Termination</h3>
+      <ul class="tc-list">
+        <li>Upon termination, your license to use the Services immediately ceases</li>
+        <li>All virtual currency, items, and progress associated with your account will be forfeited</li>
+        <li>Provisions of these Terms that by their nature should survive termination will do so, including intellectual property, disclaimers, and limitation of liability</li>
+      </ul>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S12 ── -->
+    <section class="section" id="s12">
+      <div class="sec-header">
+        <div class="sec-badge">12</div>
+        <h2>Governing Law &amp; Dispute Resolution</h2>
+      </div>
+
+      <h3>12.1 Governing Law</h3>
+      <p>These Terms shall be governed by and construed in accordance with the laws of <strong>India</strong>, without regard to its conflict of law provisions. Users in the EU/UK may also benefit from mandatory consumer protection laws in their jurisdiction of residence.</p>
+
+      <h3>12.2 Dispute Resolution</h3>
+      <ul class="tc-list">
+        <li>We encourage you to first contact us at <a href="mailto:malanisofttech@gmail.com" style="color:var(--accent);">malanisofttech@gmail.com</a> to resolve disputes informally</li>
+        <li>If a dispute cannot be resolved informally within 30 days, it shall be referred to binding arbitration under the Arbitration and Conciliation Act, 1996 (India)</li>
+        <li>The seat of arbitration shall be Gujarat, India; proceedings shall be in English</li>
+        <li>Notwithstanding the foregoing, either party may seek injunctive relief in a court of competent jurisdiction to prevent irreparable harm</li>
+      </ul>
+
+      <h3>12.3 Class Action Waiver</h3>
+      <p>To the extent permitted by applicable law, you waive the right to participate in class-action lawsuits or class-wide arbitrations against MalaniSoftTech.</p>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S13 ── -->
+    <section class="section" id="s13">
+      <div class="sec-header">
+        <div class="sec-badge">13</div>
+        <h2>Changes to These Terms</h2>
+      </div>
+      <p>We reserve the right to modify these Terms at any time. When we make material changes, we will:</p>
+      <ul class="tc-list">
+        <li>Update the "Last Updated" date at the top of this document</li>
+        <li>Notify you via in-app notification, email, or a prominent notice on our website at least <strong>15 days before</strong> the new Terms take effect</li>
+        <li>Where required by law, seek renewed consent for significant changes</li>
+      </ul>
+      <p>Your continued use of the Services after the effective date of revised Terms constitutes your acceptance of the changes. If you disagree with the updated Terms, you must stop using the Services and may request account deletion.</p>
+
+      <div class="callout neutral">
+        <div class="callout-icon">📌</div>
+        <div>We recommend bookmarking this page and reviewing the Terms periodically to stay informed about any updates.</div>
+      </div>
+    </section>
+
+    <hr class="sec-divider"/>
+
+    <!-- ── S14 ── -->
+    <section class="section" id="s14">
+      <div class="sec-header">
+        <div class="sec-badge">14</div>
+        <h2>Contact Us</h2>
+      </div>
+      <p>If you have any questions, concerns, or feedback regarding these Terms and Conditions, please reach out to us. We will do our best to respond within <strong>7 business days</strong>.</p>
+
+      <div class="contact-box">
+        <div>
+          <h3>MalaniSoftTech</h3>
+          <p>Malani Jainil — Developer &amp; Data Controller</p>
+          <p style="margin-top:8px; color:#d08070;">malanisofttech@gmail.com</p>
+        </div>
+        <a class="contact-btn" href="mailto:malanisofttech@gmail.com">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1.75 2h12.5C15.216 2 16 2.784 16 3.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2ZM1.5 5.412v6.838c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V5.412L8.54 9.956a.75.75 0 0 1-.08.06l-.025.014-.035.016-.04.016a.75.75 0 0 1-.72 0L7.6 10.03l-.024-.014a.75.75 0 0 1-.08-.06L1.5 5.412Zm13-1.686L8 8.948 1.5 3.726v-.226a.25.25 0 0 1 .25-.25h12.5a.25.25 0 0 1 .25.25v.226Z" fill="currentColor"/></svg>
+          Send Email
+        </a>
+      </div>
+
+      <!-- Misc legal -->
+      <div style="margin-top: 24px;">
+        <h3>Miscellaneous</h3>
+        <ul class="tc-list">
+          <li><strong>Entire Agreement:</strong> These Terms, together with the Privacy Policy, constitute the entire agreement between you and MalaniSoftTech regarding the Services.</li>
+          <li><strong>Severability:</strong> If any provision is found unenforceable, the remaining provisions will continue in full force.</li>
+          <li><strong>Waiver:</strong> Failure to enforce any provision shall not constitute a waiver of that provision.</li>
+          <li><strong>Assignment:</strong> You may not assign your rights under these Terms without our prior written consent. We may assign our rights without restriction.</li>
+          <li><strong>Language:</strong> These Terms are written in English. Any translated version is provided for convenience; the English version governs in the event of conflict.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ══════════════════ FOOTER ══ -->
+<footer>
+  <div class="footer-brand">MalaniSoftTech</div>
+  <p>© 2026 Malani Jainil. All rights reserved.</p>
+  <p style="margin-top:6px;">
+    <a href="privacy_policy.html">Privacy Policy</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:malanisofttech@gmail.com">malanisofttech@gmail.com</a>
+  </p>
+  <p style="margin-top:10px; font-size:12px; color:#b5a99a;">These Terms were last updated in April 2026 and are effective from January 1, 2026.</p>
+</footer>
+
+</body>
+</html>
