@@ -1,5 +1,5 @@
 {
-  "minVersionCode": 5,
-  "minVersionName": "1.5",
+  "minVersionCode": 6,
+  "minVersionName": "1.6",
   "notes": "Increase minVersionCode to force update on older builds. Example: set to 5 when v1.4 releases."
 }
